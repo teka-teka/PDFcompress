@@ -26,7 +26,7 @@ let selectedFile;
   }
 })();
 
-/* ==== 2. ファイル選択ハンドラ ==== */
+/* ==== 2. ファイル選択ハンドラ2==== */
 $fileInput.addEventListener("change", () => {
   selectedFile = $fileInput.files?.[0];
   if (!selectedFile) return;
