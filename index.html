@@ -42,9 +42,13 @@
   <progress id="progress" max="100" value="0" style="display:none;"></progress>
 
   <!-- ▼ Go の WASM ランタイム（LaserKaspar 版なら wasm_exec_memfs.js） -->
-  <script src="wasm_exec.js"></script>
+  <!-- <script src="wasm_exec.js"></script> -->
 
-  <!-- ▼ アプリロジック（pdfcpu.js と pdfcpu.wasm を自動ロード） -->
-  <script type="module" src="main.js"></script>
+  <!-- ▼ PDF圧縮ライブラリ -->
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+
+  <!-- ▼ アプリロジック -->
+  <script src="main.js"></script>
 </body>
 </html>
