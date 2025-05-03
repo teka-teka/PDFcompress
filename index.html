@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>PDF圧縮ツール</title>
-</head>
-<body>
-  <h1>PDF圧縮</h1>
-  <input type="file" id="fileInput" accept=".pdf" />
-  <button id="compressBtn" disabled>圧縮する</button>
-  <progress id="progress" value="0" max="100" style="display:none;"></progress>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PDF 圧縮ツール – Client-side (pdfcpu WASM)</title>
 
+  <!-- 💅 かんたんなスタイル。必要に応じて編集してください -->
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem;
+      color: #333;
+    }
+    h1 { margin: 0.5rem 0 1rem; font-size: 1.6rem; }
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      border: 0;
+      border-radius: 6px;
+      background: #2c7be5;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:disabled { opacity: 0.4; cursor: not-allowed; }
+    progress { width: 260px; height: 18px; }
+    #sizeInfo { font-size: 0.9rem; }
+  </style>
+</head>
+
+<body>
+  <h1>PDF 圧縮</h1>
+
+  <input type="file" id="fileInput" accept="application/pdf" />
+  <div id="sizeInfo"></div>
+
+  <button id="compressBtn" disabled>圧縮する</button>
+  <progress id="progress" max="100" value="0" style="display:none;"></progress>
+
+  <!-- ▼ Go の WASM ランタイム（LaserKaspar 版なら wasm_exec_memfs.js） -->
+  <script src="wasm_exec.js"></script>
+
+  <!-- ▼ アプリロジック（pdfcpu.js と pdfcpu.wasm を自動ロード） -->
   <script type="module" src="main.js"></script>
 </body>
 </html>
